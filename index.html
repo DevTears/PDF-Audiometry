@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de PDF - Audiometría</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Formulario de Audiometría</h1>
+        <form id="audiometriaForm">
+            <!-- Datos personales -->
+            <div class="mb-3">
+                <label for="ciudadFecha" class="form-label">Ciudad y Fecha</label>
+                <input type="text" class="form-control" id="ciudadFecha" placeholder="Ingrese ciudad y fecha">
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del paciente">
+            </div>
+            <div class="mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="dni" placeholder="Ingrese el DNI">
+            </div>
+            <div class="mb-3">
+                <label for="motivoConsulta" class="form-label">Motivo de Consulta</label>
+                <input type="text" class="form-control" id="motivoConsulta" placeholder="Ingrese el motivo de consulta">
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad">
+            </div>
+
+            <!-- Antecedentes auditivos -->
+            <h5 class="mt-4">Antecedentes Auditivos</h5>
+            <div class="mb-3">
+                <label class="form-label">OTORREA/OTALGIA</label>
+                <div>
+                    <input type="radio" id="otorreaSi" name="otorrea" value="Sí">
+                    <label for="otorreaSi">Sí</label>
+                    <input type="radio" id="otorreaNo" name="otorrea" value="No">
+                    <label for="otorreaNo">No</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ACÚFENOS/VÉRTIGO</label>
+                <div>
+                    <input type="radio" id="acufenosSi" name="acufenos" value="Sí">
+                    <label for="acufenosSi">Sí</label>
+                    <input type="radio" id="acufenosNo" name="acufenos" value="No">
+                    <label for="acufenosNo">No</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">CIRUGÍA DE OÍDO/OTITIS</label>
+                <div>
+                    <input type="radio" id="cirugiaSi" name="cirugia" value="Sí">
+                    <label for="cirugiaSi">Sí</label>
+                    <input type="radio" id="cirugiaNo" name="cirugia" value="No">
+                    <label for="cirugiaNo">No</label>
+                </div>
+            </div>
+
+            <!-- Evaluación capacidad auditiva -->
+            <h5 class="mt-4">Evaluación Capacidad Auditiva</h5>
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>dB</th>
+                        <th>250</th>
+                        <th>500</th>
+                        <th>1000</th>
+                        <th>2000</th>
+                        <th>3000</th>
+                        <th>4000</th>
+                        <th>6000</th>
+                        <th>8000</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Oído Derecho</td>
+                        <td><input type="number" class="form-control" id="od250"></td>
+                        <td><input type="number" class="form-control" id="od500"></td>
+                        <td><input type="number" class="form-control" id="od1000"></td>
+                        <td><input type="number" class="form-control" id="od2000"></td>
+                        <td><input type="number" class="form-control" id="od3000"></td>
+                        <td><input type="number" class="form-control" id="od4000"></td>
+                        <td><input type="number" class="form-control" id="od6000"></td>
+                        <td><input type="number" class="form-control" id="od8000"></td>
+                    </tr>
+                    <tr>
+                        <td>Oído Izquierdo</td>
+                        <td><input type="number" class="form-control" id="oi250"></td>
+                        <td><input type="number" class="form-control" id="oi500"></td>
+                        <td><input type="number" class="form-control" id="oi1000"></td>
+                        <td><input type="number" class="form-control" id="oi2000"></td>
+                        <td><input type="number" class="form-control" id="oi3000"></td>
+                        <td><input type="number" class="form-control" id="oi4000"></td>
+                        <td><input type="number" class="form-control" id="oi6000"></td>
+                        <td><input type="number" class="form-control" id="oi8000"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-primary mt-3" id="generatePdf">
+                <span id="buttonText">Generar PDF</span>
+                <span id="loadingSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            </button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
