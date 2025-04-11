@@ -11,9 +11,15 @@
         <h1 class="text-center mb-4">Formulario de Audiometría</h1>
         <form id="audiometriaForm">
             <!-- Datos personales -->
-            <div class="mb-3">
-                <label for="ciudadFecha" class="form-label">Ciudad y Fecha</label>
-                <input type="text" class="form-control" id="ciudadFecha" placeholder="Ingrese ciudad y fecha">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="ciudad" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="ciudad" placeholder="Ingrese la ciudad">
+                </div>
+                <div class="col-md-6">
+                    <label for="fecha" class="form-label">Fecha</label>
+                    <input type="date" class="form-control" id="fecha">
+                </div>
             </div>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
@@ -34,31 +40,54 @@
 
             <!-- Antecedentes auditivos -->
             <h5 class="mt-4">Antecedentes Auditivos</h5>
-            <div class="mb-3">
-                <label class="form-label">OTORREA/OTALGIA</label>
-                <div>
-                    <input type="radio" id="otorreaSi" name="otorrea" value="Sí">
-                    <label for="otorreaSi">Sí</label>
-                    <input type="radio" id="otorreaNo" name="otorrea" value="No">
-                    <label for="otorreaNo">No</label>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label">OTORREA</label>
+                    <div>
+                        <input type="radio" id="otorreaSi" name="otorrea" value="Sí">
+                        <label for="otorreaSi">Sí</label>
+                        <input type="radio" id="otorreaNo" name="otorrea" value="No" checked>
+                        <label for="otorreaNo">No</label>
+                    </div>
+                    <label class="form-label mt-2">OTALGIA</label>
+                    <div>
+                        <input type="radio" id="otalgiaSi" name="otalgia" value="Sí">
+                        <label for="otalgiaSi">Sí</label>
+                        <input type="radio" id="otalgiaNo" name="otalgia" value="No" checked>
+                        <label for="otalgiaNo">No</label>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">ACÚFENOS/VÉRTIGO</label>
-                <div>
-                    <input type="radio" id="acufenosSi" name="acufenos" value="Sí">
-                    <label for="acufenosSi">Sí</label>
-                    <input type="radio" id="acufenosNo" name="acufenos" value="No">
-                    <label for="acufenosNo">No</label>
+                <div class="col-md-4">
+                    <label class="form-label">ACÚFENOS</label>
+                    <div>
+                        <input type="radio" id="acufenosSi" name="acufenos" value="Sí">
+                        <label for="acufenosSi">Sí</label>
+                        <input type="radio" id="acufenosNo" name="acufenos" value="No" checked>
+                        <label for="acufenosNo">No</label>
+                    </div>
+                    <label class="form-label mt-2">VÉRTIGO</label>
+                    <div>
+                        <input type="radio" id="vertigoSi" name="vertigo" value="Sí">
+                        <label for="vertigoSi">Sí</label>
+                        <input type="radio" id="vertigoNo" name="vertigo" value="No" checked>
+                        <label for="vertigoNo">No</label>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">CIRUGÍA DE OÍDO/OTITIS</label>
-                <div>
-                    <input type="radio" id="cirugiaSi" name="cirugia" value="Sí">
-                    <label for="cirugiaSi">Sí</label>
-                    <input type="radio" id="cirugiaNo" name="cirugia" value="No">
-                    <label for="cirugiaNo">No</label>
+                <div class="col-md-4">
+                    <label class="form-label">CIRUGÍA DE OÍDO</label>
+                    <div>
+                        <input type="radio" id="cirugiaSi" name="cirugia" value="Sí">
+                        <label for="cirugiaSi">Sí</label>
+                        <input type="radio" id="cirugiaNo" name="cirugia" value="No" checked>
+                        <label for="cirugiaNo">No</label>
+                    </div>
+                    <label class="form-label mt-2">OTITIS</label>
+                    <div>
+                        <input type="radio" id="otitisSi" name="otitis" value="Sí">
+                        <label for="otitisSi">Sí</label>
+                        <input type="radio" id="otitisNo" name="otitis" value="No" checked>
+                        <label for="otitisNo">No</label>
+                    </div>
                 </div>
             </div>
 
@@ -103,6 +132,12 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- Observaciones -->
+            <div class="mb-3">
+                <label for="observaciones" class="form-label">Observaciones</label>
+                <textarea id="observaciones" class="form-control" rows="2" placeholder="Escriba sus observaciones aquí..."></textarea>
+            </div>
 
             <button type="button" class="btn btn-primary mt-3" id="generatePdf">
                 <span id="buttonText">Generar PDF</span>
